@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* Cambiado a blanco */
+}
+#header {
+    background-color: #155c34; /* Verde esmeralda oscuro */
+    color: #fff;
+    padding: 1em;
+    text-align: left; /* Alineado a la izquierda */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+#logo {
+    width: 8%; /* Ajusta el ancho del logo en porcentaje según tus necesidades */
+    height: auto; /* Mantiene la proporción del logo */
+    margin-right: 2%; /* Ajusta el margen derecho en porcentaje según tus necesidades */
+}
+
+#header h1 {
+    margin: 0; /* Elimina el margen predeterminado del h1 */
+    display: inline-block; /* Permite alinear a la izquierda */
+    margin-left: -2%; /* Ajusta este valor en porcentaje según tus necesidades para compensar el margen derecho del logo */
+    transition: font-size 1s ease; /* Transición más lenta en el tamaño de la fuente durante el hover */
+    font-size: 1.7em; /* Ajusta el tamaño de la fuente durante el hover en em según tus preferencias */
+
+}
+
+
+#nav {
+    width: 100%;
+    margin-left: 30%;
+    padding: 1em;
+    text-align: center;
+    color: #ffffff; 
+}
+
+#nav a{
+    
+    width: 10%;
+    font-size: 120%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    text-decoration: none;
+    color: #fff;
+}
+#nav a:hover{    
+    color: #797979;
+
+}
+
+#main-section {
+    margin: 2%;
+    padding: 2%;
+    background-color: #ecf0f1; /* Color de fondo de la sección principal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+
+
+}
+
+th, td {
+    padding: 0.5%;
+}
+
+th {
+    background-color: #155c34;
+    color: #ffffff;
+    font-size: 120%;
+
+}
+
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+}
+
+
+.search-container {
+    margin-bottom: 3%;
+    text-align: right;
+}
+
+#search-input {
+    padding: 1%;
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-button {
+    padding: 1% 3%;
+    background-color: #155c34;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #45a049;
+}

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('cc_propietario')->index('fk_propietario_idx');
             $table->string('placa_ingreso', 45);
             $table->date('fehca_ingreso');
-            $table->dateTime('hora_ingreso');
+            $table->time('hora_ingreso');
         });
     }
 
