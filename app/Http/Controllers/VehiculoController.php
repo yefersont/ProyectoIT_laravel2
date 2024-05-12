@@ -12,7 +12,7 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $datos['vehiculo']=Vehiculo::paginate(5);
+        $datos['vehiculos']=Vehiculo::paginate(5);
         return view('vehiculo.index',$datos);
     }
 
@@ -30,6 +30,7 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**

@@ -12,27 +12,29 @@
         <table>
             <thead>
                 <tr>
+                    <th>Cedula propietario</th>
                     <th>Tipo vehiculo</th>
                     <th>Placa </th>
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Color</th>
-                    <th>Cedula propietario</th>
                     <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
+
+            @foreach( $vehiculos as $vehiculo)
                 <tr>
-                    <td>Motocicleta</td>
-                    <td>ZQE49E</td>
-                    <td>Bajaj</td>                    
-                    <td>2019</td>
-                    <td>Negro</td>
-                    <td>1006319573</td>
-                    <td> <button type="button" class="btn btn-warning"> Actualizar </button> | <button type="button" class="btn btn-danger"> Eliminar </button>  </td>
+                    <td>{{ $vehiculo -> Cc_propietario_vehiculo }}</td>
+                    <td>{{ $vehiculo -> Tipodevehiculo -> tp_vehiculo_tp }}</td>
+                    <td>{{ $vehiculo -> placa_vehiculo }}</td>
+                    <td>{{ $vehiculo -> Marca_vehiculo }}</td>                    
+                    <td>{{ $vehiculo -> Modelo_vehiculo }}</td>
+                    <td>{{ $vehiculo -> Color_vehiculo }}</td>
+                    <td> <button type="button" class="btn btn-warning"> Actualizar </button>  <button type="button" class="btn btn-danger"> Eliminar </button>  </td>
 
                 </tr>
-                
+            @endforeach
             </tbody>
         </table>
     </div>

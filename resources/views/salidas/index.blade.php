@@ -30,13 +30,18 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ( $salidas as $salida)
+
                 <tr>
-                    <td>1006319573</td>
-                    <td>ZQE49E</td>
-                    <td>05/05/2024</td>                    
-                    <td>11:28</td>
+                    <td>{{ $salida -> idSalidas  }}</td>
+                    <td>{{ $salida -> id_Ingresos_id }}</td>
+                    <td>{{ $salida -> Fecha_Salida  }}</td>                    
+                    <td>{{ $salida -> Hora_Salida  }}</td>
 
                 </tr>
+
+                @endforeach
+
             </tbody>
         </table>
     </div>

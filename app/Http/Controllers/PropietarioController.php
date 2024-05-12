@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Propietario;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
 class PropietarioController extends Controller
@@ -13,8 +14,9 @@ class PropietarioController extends Controller
     public function index()
     {
         //
-        $datos['propietario']=Propietario::paginate(5);
-        return view('propietarios.index',$datos);
+        $datos['propietarios']=Propietario::all();
+        $vehiculos['vehiculos']= Vehiculo::all();
+        return view('propietarios.index',$datos,$vehiculos);
     }
 
     /**
@@ -23,6 +25,9 @@ class PropietarioController extends Controller
     public function create()
     {
         //
+        $vehiculos['vehiculos']= Vehiculo::all();
+        return view('propietarios.create',$vehiculos);
+        
     }
 
     /**
@@ -31,6 +36,9 @@ class PropietarioController extends Controller
     public function store(Request $request)
     {
         //
+        $datosPropietario = request()->except('_token');
+        Propietario::insert($datosPropietario);
+        return redirect('propietario');
     }
 
     /**
@@ -47,6 +55,9 @@ class PropietarioController extends Controller
     public function edit(string $id)
     {
         //
+        $vehiculos['vehiculos']= Vehiculo::all();
+        $propietario = Propietario::findOrFail($id);
+        return view('propietarios.edit', compact('propietario'),$vehiculos);
     }
 
     /**
@@ -55,6 +66,12 @@ class PropietarioController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $datosPropietario = request()->except(['_token','_method']);
+        Propietario::where('idPropietario','=',$id) -> update($datosPropietario);
+        
+        return redirect('propietario'); 
+
+        
     }
 
     /**
@@ -63,5 +80,8 @@ class PropietarioController extends Controller
     public function destroy(string $id)
     {
         //
+        Propietario::destroy($id);
+
+        return redirect('propietario');
     }
 }

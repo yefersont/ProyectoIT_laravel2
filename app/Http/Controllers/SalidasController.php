@@ -13,7 +13,7 @@ class SalidasController extends Controller
     public function index()
     {
         //
-        $datos['salida']=Salida::paginate(5);
+        $datos['salidas']=Salida::paginate(5);
         return view('salidas.index',$datos);
     }
 

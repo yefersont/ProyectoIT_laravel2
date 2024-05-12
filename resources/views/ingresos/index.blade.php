@@ -24,20 +24,25 @@
         <table>
             <thead>
                 <tr>
-                    <th>Cedula</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
                     <th>Placa</th>
-                    <th>Fecha ingreso</th>
-                    <th>Hora ingreso</th>
+                    <th>Fecha de ingreso</th>
+                    <th>Hora de ingreso</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach( $ingresos as $ingreso)
                 <tr>
-                    <td>1006319573</td>
-                    <td>ZQE49E</td>
-                    <td>05/05/2024</td>                    
-                    <td>11:28</td>
-
+                    <td>{{ $ingreso -> propietario -> Nombre_propietario }}</td>
+                    <td>{{ $ingreso -> propietario -> Apellido_propietario }}</td>
+                    <td>{{ $ingreso -> placa_ingreso }}</td>                    
+                    <td>{{ $ingreso -> fehca_ingreso }}</td>
+                    <td>{{ $ingreso -> hora_ingreso }}</td>
+                    <td> <button type="button" class="btn btn-warning"> Actualizar </button>  <button type="button" class="btn btn-danger"> Eliminar </button>  </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

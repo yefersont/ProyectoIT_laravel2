@@ -44,7 +44,7 @@ class Vehiculo extends Model
 		'Cc_propietario_vehiculo'
 	];
 
-	public function tipo_vehiculo()
+	public function Tipodevehiculo()
 	{
 		return $this->belongsTo(TipoVehiculo::class, 'tipo_vehiculo');
 	}
