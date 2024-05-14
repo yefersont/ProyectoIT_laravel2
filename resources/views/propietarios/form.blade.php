@@ -1,5 +1,7 @@
 
 <body>
+<h2> {{$modo}} Propietario</h2>
+
 
     <div class="form-container">
         <div class="form-column">
@@ -26,8 +28,8 @@
         <div class="form-column">
             <div class="form-group">
                 <label for="input5">Placa del vehiculo</label>
-                <select type="text" id="input5" name="propietario_placa_vehiculo">
-
+                <select type="text" id="input5" name="propietario_placa_vehiculo" >
+                <option value=""> Seleccione una placa...</option>
                 @foreach( $vehiculos as $vehiculo)
                     <option value="{{ $vehiculo -> idVehiculo }}"> {{ $vehiculo -> placa_vehiculo }} </option>
                 @endforeach
@@ -48,6 +50,16 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
     <div class="form-container-buttons">
         <div class="form-column">
             <div class="form-group">
@@ -70,5 +82,6 @@
 
             </div>
         </div>
+        
     </div>
 </body>

@@ -25,7 +25,7 @@ class PropietarioController extends Controller
     public function create()
     {
         //
-        $vehiculos['vehiculos']= Vehiculo::all();
+        $vehiculos['vehiculos']= Vehiculo::all();           
         return view('propietarios.create',$vehiculos);
         
     }
@@ -38,7 +38,7 @@ class PropietarioController extends Controller
         //
         $datosPropietario = request()->except('_token');
         Propietario::insert($datosPropietario);
-        return redirect('propietario');
+        return redirect('propietario')->with('mensaje','Propietario agregado con éxito!. ');
     }
 
     /**
@@ -69,7 +69,7 @@ class PropietarioController extends Controller
         $datosPropietario = request()->except(['_token','_method']);
         Propietario::where('idPropietario','=',$id) -> update($datosPropietario);
         
-        return redirect('propietario'); 
+        return redirect('propietario')->with('mensaje','Propietario actualizado con éxito!.');
 
         
     }
@@ -82,6 +82,6 @@ class PropietarioController extends Controller
         //
         Propietario::destroy($id);
 
-        return redirect('propietario');
+        return redirect('propietario')->with('mensajeeliminado',' Propietario eliminado con éxito!. ');
     }
 }

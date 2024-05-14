@@ -12,7 +12,7 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $datos['vehiculos']=Vehiculo::paginate(5);
+        $datos['vehiculos']=Vehiculo::all();
         return view('vehiculo.index',$datos);
     }
 
@@ -22,6 +22,10 @@ class VehiculoController extends Controller
     public function create()
     {
         //
+        $vehiculo['vehiculos'] = Vehiculo::all();
+        return view('vehiculo.create',$vehiculo);
+
+
     }
 
     /**
@@ -30,6 +34,11 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $datosvehiculo = request()->except('_token');
+        Vehiculo::insert($datosvehiculo);
+        return redirect('vehiculos')->with('mensaje',' Vehículo agregado con éxito.');
+
         
     }
 
@@ -47,6 +56,8 @@ class VehiculoController extends Controller
     public function edit(string $id)
     {
         //
+        $vehiculo = Vehiculo::findOrFail($id);
+        return view('vehiculo.edit', compact('vehiculo'));
     }
 
     /**
@@ -55,6 +66,11 @@ class VehiculoController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $datosvehiculo = request()->except(['_token','_method']);
+        Vehiculo::where('idVehiculo','=',$id) -> update($datosvehiculo);
+        
+        return redirect('vehiculos')->with('mensaje',' El vehículo ha sido actualizado con éxito. '); 
+
     }
 
     /**
@@ -62,6 +78,9 @@ class VehiculoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
+        Vehiculo::destroy($id);
+        return redirect('vehiculos')->with('mensajeeliminado',' El vehículo ha sido eliminado con éxito.');
+
     }
 }

@@ -2,11 +2,25 @@
 @include('inc.header')
 
 <body>
+
+    @if( Session::has('mensaje'))
+        <div class="alert alert-info alert-dismissible" role="alert">
+            {{ Session::get('mensaje')}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+        </div>
+    @endif
+
+    @if( Session::has('mensajeeliminado'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            {{ Session::get('mensajeeliminado')}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+        </div>
+    @endif
     
     <section id="main-section">
     <h2>Propietarios</h2>
     <div class="search-container">  
-        <a href="{{url('propietario/create')}} "  id="search-button">Nuevo propietario +</a>         
+        <button onclick="window.location.href='{{url('propietario/create')}}'" id="search-button">Nuevo propietario +</button>
         <input type="text" id="search-input" placeholder="Buscar...">
         <button id="search-button">Buscar</button>
     </div>
@@ -14,7 +28,6 @@
         <table>
             <thead>
                 <tr>
-                    <th>Cedula</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Telefono</th>
@@ -28,7 +41,6 @@
 
             @foreach($propietarios as $propietario)
                 <tr>
-                    <td>{{ $propietario -> Cedula_propietario }}</td>
                     <td>{{ $propietario -> Nombre_propietario }}</td>
                     <td>{{ $propietario -> Apellido_propietario }}</td>                    
                     <td>{{ $propietario -> telefono_propietario }}</td>

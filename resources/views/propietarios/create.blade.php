@@ -5,6 +5,7 @@
     
     @csrf
     @include('propietarios.form', ['modo'=>'Registrar'])
+    
 
 
 </form>

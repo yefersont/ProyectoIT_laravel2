@@ -1,6 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;    margin: 0;
     padding: 0;
     background-color: #fff; /* Cambiado a blanco */
 }
@@ -50,14 +51,14 @@ body {
     color: #797979;
 
 }
-
 #main-section {
-    margin: 2%;
+    margin: 3% 5% auto; /* Margen superior del 3%, margen derecho e izquierdo del 5%, centrado horizontalmente */
     padding: 2%;
     background-color: #ecf0f1; /* Color de fondo de la sección principal */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10%; /* Margen inferior del 10% */
 }
-
+    
 
 
 table {
@@ -83,15 +84,15 @@ th {
 
 }
 
-
 #footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 1em;
+    padding: 1%;
     background-color: #333;
     color: #fff;
+    margin-top: 5%; /* Ajustamos el margen hacia arriba en un 2% */
 }
 
 
