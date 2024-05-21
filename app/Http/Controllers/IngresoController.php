@@ -23,6 +23,7 @@ class IngresoController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -30,7 +31,11 @@ class IngresoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ingreso = new Ingreso();
+        $ingreso->cc_propietario = $request->cc_propietario;
+        $ingreso->save();
+        return redirect('ingreso')->with('mensaje','Ingreso agregado con éxito!. ');
+        
     }
 
     /**

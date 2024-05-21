@@ -2,16 +2,6 @@
 
 <body>
 
-    
-    <section id="main-section">
-        <!-- Contenido de la página principal -->
-        <h2>Estado del Parqueadero</h2>
-        <p>Capacidad total: 100 | Ocupados: 1 | Disponibles: 99</p>
-
-        <!-- Contenido adicional (formularios, historiales, etc.) se puede agregar aquí -->
-    </section>
-
-
     <section id="main-section">
     <!-- Contenido de la página principal -->
     <h2>Salidas</h2>

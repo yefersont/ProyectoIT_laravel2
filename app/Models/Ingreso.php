@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $idIngresos
  * @property int $cc_propietario
- * @property string $placa_ingreso
  * @property Carbon $fehca_ingreso
  * @property Carbon $hora_ingreso
  * 
@@ -28,19 +27,20 @@ class Ingreso extends Model
 {
 	protected $table = 'ingresos';
 	protected $primaryKey = 'idIngresos';
-	public $timestamps = false;
+	public $timestamps = true;
+
+	const CREATED_AT = 'hora_ingreso';
+    const UPDATED_AT = 'fehca_ingreso';
+	
 
 	protected $casts = [
 		'cc_propietario' => 'int',
-		'fehca_ingreso' => 'datetime',
+		'fehca_ingreso' => 'date',
 		'hora_ingreso' => 'datetime'
 	];
 
 	protected $fillable = [
 		'cc_propietario',
-		'placa_ingreso',
-		'fehca_ingreso',
-		'hora_ingreso'
 	];
 
 	public function propietario()

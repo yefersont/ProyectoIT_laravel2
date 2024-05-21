@@ -1,4 +1,5 @@
 
+
 <body>
 <h2> {{$modo}} Propietario</h2>
 
@@ -27,26 +28,46 @@
         </div>
         <div class="form-column">
             <div class="form-group">
+                <?php 
+                $placa="";
+                if(isset($propietario)){
+                    $placa = $propietario->vehiculo->placa_vehiculo;
+                }
+                
+                //echo "<pre>entra".print_r($propietario->vehiculo->placa_vehiculo,1);
+                ?>
                 <label for="input5">Placa del vehiculo</label>
-                <select type="text" id="input5" name="propietario_placa_vehiculo" >
+
+
+                <select   id="input5" name="propietario_placa_vehiculo">
                 <option value=""> Seleccione una placa...</option>
                 @foreach( $vehiculos as $vehiculo)
-                    <option value="{{ $vehiculo -> idVehiculo }}"> {{ $vehiculo -> placa_vehiculo }} </option>
+                    <?php 
+                    $sel = "";
+                        
+                     if($placa == $vehiculo->placa_vehiculo){
+                        $sel = "selected";
+                     }
+                    ?>
+                    <option value="{{ $vehiculo -> idVehiculo }}" <?php echo $sel; ?>> {{ $vehiculo -> placa_vehiculo }} </option>
                 @endforeach
 
                 </select>
+
+
             </div>
+
             <div class="form-group">
                 <label for="input6">Rol</label>
+                
                 <select id="input6" name="Rol">
-                    <option value="">Seleccione un rol...</option> <!-- Opción predeterminada -->
-                    <option value="1"> Estudiante </option>
-                    <option value="2"> Docente </option>
-                    <option value="3"> Administrativo </option>
-                    <option value="4"> Trabajador </option>
+                    <option value=""></option> <!-- Opción predeterminada -->
+                    <option value="1" <?php echo (isset($propietario) AND $propietario->rol->Rol == 'Estudiante')?"selected":""; ?>> Estudiante </option>
+                    <option value="2" <?php echo (isset($propietario) AND $propietario->rol->Rol == 'Docente')?"selected":""; ?>> Docente </option>
+                    <option value="3" <?php echo (isset($propietario) AND $propietario->rol->Rol == 'Administrativo')?"selected":""; ?>> Administrativo </option>
+                    <option value="4" <?php echo (isset($propietario) AND $propietario->rol->Rol == 'Trabajador')?"selected":""; ?>> Trabajador </option>
                 </select>
-            
-            
+        
             </div>
         </div>
     </div>
@@ -85,3 +106,4 @@
         
     </div>
 </body>
+

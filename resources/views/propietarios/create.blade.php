@@ -1,6 +1,9 @@
 
 @include('inc.header')
 
+
+
+
 <form action="{{ url('/propietario') }}" method="post" enctype="multipart/form-data">
     
     @csrf
@@ -9,5 +12,6 @@
 
 
 </form>
+                
 
 @include('inc.footer')

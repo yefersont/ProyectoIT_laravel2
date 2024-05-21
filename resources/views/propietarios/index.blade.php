@@ -1,6 +1,10 @@
 
 @include('inc.header')
 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
+
 <body>
 
     @if( Session::has('mensaje'))
@@ -17,15 +21,13 @@
         </div>
     @endif
     
-    <section id="main-section">
+<section id="main-section">
     <h2>Propietarios</h2>
     <div class="search-container">  
         <button onclick="window.location.href='{{url('propietario/create')}}'" id="search-button">Nuevo propietario +</button>
-        <input type="text" id="search-input" placeholder="Buscar...">
-        <button id="search-button">Buscar</button>
     </div>
     <div class="table-container">
-        <table>
+        <table id="tablas">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -60,6 +62,14 @@
             @endforeach
             </tbody>
         </table>
+
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+
+
     </div>
 
 </section>
