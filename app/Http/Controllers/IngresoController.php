@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ingreso;
 use Illuminate\Http\Request;
+use App\Models\Propietario;
 
 class IngresoController extends Controller
 {
@@ -13,7 +14,9 @@ class IngresoController extends Controller
     public function index()
     {
         //
-        $datos['ingresos']=Ingreso::paginate(5);
+        $datos['ingresos']=Ingreso::all();
+
+        
         return view('ingresos.index',$datos);
     }
 
@@ -31,10 +34,24 @@ class IngresoController extends Controller
      */
     public function store(Request $request)
     {
-        $ingreso = new Ingreso();
-        $ingreso->cc_propietario = $request->cc_propietario;
-        $ingreso->save();
-        return redirect('ingreso')->with('mensaje','Ingreso agregado con éxito!. ');
+
+        
+        $propietario = Propietario::where('Cedula_propietario', $request->Cedula_propietario)->first();
+
+        if ($propietario) {
+
+            $ingreso = new Ingreso();
+            $ingreso->cc_propietario = $propietario->idPropietario;
+
+            $ingreso->save();
+
+            return redirect('ingreso')->with('mensaje', 'Ingreso agregado con éxito!  '.$propietario -> Nombre_propietario." ".$propietario->Apellido_propietario);
+
+        }else{
+
+            return redirect('ingreso')->with('mensajeerror', 'El número de identificación no está registrado en el sistema.');
+
+        }
         
     }
 

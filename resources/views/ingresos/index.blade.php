@@ -8,12 +8,24 @@
 
 <body>
 
+
+<!-- Mensajes  -->
+
     @if( Session::has('mensaje'))
         <div class="alert alert-info alert-dismissible" role="alert">
             {{ Session::get('mensaje')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
         </div>
     @endif
+
+    @if( Session::has('mensajeerror'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            {{ Session::get('mensajeerror')}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+        </div>
+    @endif
+
+<!-- Contenido de las tablas  -->
 
 
 <!-- <section id="main-section">
@@ -25,9 +37,8 @@
     <!-- Contenido de la página principal -->
     <h2>Ingresos</h2>
     <div class="search-container">  
-        
-    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar ingreso</button>
-
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar ingreso</button>
+    </div>
 <!-- Modal -->
 
 
@@ -43,7 +54,7 @@
                 <div class="modal-body">
 
                     <div class="input-group flex-nowrap">
-                        <input type="text" name="cc_propietario" id="Indentificacion" class="form-control" placeholder="Identificacion propietario" aria-describedby="addon-wrapping">
+                        <input type="text" data-input-numerico name="Cedula_propietario" id="Indentificacion" class="form-control" placeholder="Identificacion propietario" aria-describedby="addon-wrapping" required>
                     </div>                  
                 
                 </div>
@@ -56,9 +67,7 @@
         </div>
     </form>
 
-    
 
-    </div>
     <div class="table-container">
         <table id="tablas">
             <thead>
@@ -74,8 +83,8 @@
                 <tr>
                     <td>{{ $ingreso -> propietario -> Nombre_propietario }}</td>
                     <td>{{ $ingreso -> propietario -> Apellido_propietario }}</td>
-                    <td>{{ $ingreso -> fehca_ingreso }}</td>
-                    <td>{{ $ingreso -> hora_ingreso }}</td>
+                    <td>{{ \Carbon\Carbon::parse($ingreso->fehca_ingreso)->toDateString() }}</td>
+                    <td>{{ \Carbon\Carbon::parse($ingreso->hora_ingreso)->format('H:i:s') }}</td>
                 </tr>
                 @endforeach
             </tbody>

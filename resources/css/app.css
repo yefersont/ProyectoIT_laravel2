@@ -5,6 +5,18 @@ body {
     padding: 0;
     background-color: #fff; /* Cambiado a blanco */
 }
+.custom-label {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+}
+
+
+
+
+
+
 #header {
     background-color: #155c34; /* Verde esmeralda oscuro */
     color: #fff;
