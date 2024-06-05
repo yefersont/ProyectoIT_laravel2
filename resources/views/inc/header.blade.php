@@ -31,7 +31,24 @@
             <a href="{{ url('vehiculos/')}}">Vehiculos</a> 
             <a href="{{ url('ingreso/')}}">Ingresos</a> 
             <a href="{{ url('salidas/')}}">Salidas</a> 
-            <a href="{{ url('reportes/')}}">Reportes</a>
+           <!--<a href="{{ url('reportes/')}}">Reportes</a> -->
+
+            <div class="nav-item dropdown" style="display: inline-block;">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+
         </nav>
     </header>
 

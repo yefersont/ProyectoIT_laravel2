@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Ingreso;
+use App\Models\Salida;
 
 use Illuminate\Http\Request;
 
@@ -9,9 +11,10 @@ class ReportesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 
+    
         return view('reportes.index');
     }
 

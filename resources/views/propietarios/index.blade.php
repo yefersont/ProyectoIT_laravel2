@@ -22,6 +22,15 @@
     @endif
     
 <section id="main-section">
+
+
+        <div id="loading" class="text-center" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Cargando...</p>
+        </div>
+
     <h2>Propietarios</h2>
     <div class="search-container">  
         <button onclick="window.location.href='{{url('propietario/create')}}'" id="search-button">Nuevo propietario +</button>

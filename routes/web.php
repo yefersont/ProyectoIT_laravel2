@@ -1,5 +1,7 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\PropietarioController;
@@ -20,22 +22,25 @@ use App\Models\Propietario;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Mueestra el login al iniciar el servidor
+Auth::routes();
 
-Route::resource('vehiculos',VehiculoController::class);
+Route::group(['middleware'=>'auth'], function(){
 
-Route::resource('propietario',PropietarioController::class);
-
-Route::resource('ingreso',IngresoController::class);
-
-Route::resource('salidas',SalidasController::class);
-
-Route::resource('reportes',ReportesController::class);
+    // Redirigue a la vista propietarios despues de loguearse
+    Route::get('/',[PropietarioController::class, 'index'])->name('propietario');
 
 
+    Route::resource('vehiculos',VehiculoController::class);
 
-
+    Route::resource('propietario',PropietarioController::class);
 
     
+    Route::resource('ingreso',IngresoController::class);
+    
+    Route::resource('salidas',SalidasController::class);
+    
+    Route::resource('reportes',ReportesController::class);
+    
+});
+
